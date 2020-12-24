@@ -1,6 +1,6 @@
 {
   "name": "dash-react",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "description": "",
   "main": "lib/index.js",
   "files": [
@@ -12,7 +12,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "publish": ""
   },
   "keywords": [],
   "author": "",

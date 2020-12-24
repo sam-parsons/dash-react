@@ -15,7 +15,7 @@ class ReactDASH extends React.Component<Props, State> {
     super(props);
     this.state = {
       player: null,
-      url: props.url || "https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd"
+      url: props.url
     }
   }
 
