@@ -1,7 +1,7 @@
 import React from 'react';
 
 class ReactDASH extends React.Component {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     console.log('made it to constructor')
   }
