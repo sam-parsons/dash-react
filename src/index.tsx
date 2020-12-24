@@ -1,4 +1,5 @@
 import React from 'react';
+import Dash from 'dashjs';
 
 class ReactDASH extends React.Component {
   constructor(props: any) {
@@ -8,6 +9,7 @@ class ReactDASH extends React.Component {
 
   componentDidMount() {
     console.log('CDM')
+    console.log(Dash);
   }
 
   render() {
