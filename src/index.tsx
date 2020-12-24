@@ -10,7 +10,7 @@ interface State {
   url: string
 }
 
-class ReactDASH extends React.Component<Props, State> {
+class DASHReact extends React.Component<Props, State> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -36,4 +36,4 @@ class ReactDASH extends React.Component<Props, State> {
   }
 }
 
-export default ReactDASH;
+export default DASHReact;
