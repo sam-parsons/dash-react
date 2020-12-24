@@ -2,7 +2,7 @@ import React from 'react';
 import Dash from 'dashjs';
 
 interface Props {
-
+  url?: string
 }
 
 interface State {
@@ -15,24 +15,22 @@ class ReactDASH extends React.Component<Props, State> {
     super(props);
     this.state = {
       player: null,
-      url: "https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd"
+      url: props.url || "https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd"
     }
   }
 
   componentDidMount() {
-    console.log('CDM')
-    console.log(Dash);
     const player = Dash.MediaPlayer().create();
-    this.setState({player}, () => {
+    this.setState({ player }, () => {
+      // first argument - a never null Element typecast as HTMLElement
       return player.initialize(document.querySelector("#videoPlayer")! as HTMLElement, this.state.url, true);
     })
-
   }
 
   render() {
     return (
       <div>
-        <video id="videoPlayer" ></video>
+        <video id="videoPlayer" controls></video>
       </div>
     )
   }
