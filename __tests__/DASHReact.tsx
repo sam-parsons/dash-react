@@ -1,6 +1,6 @@
 import React from 'react';
 import DASH from '../src/index';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 describe('DASHReact', () => {
   it('renders', () => {
@@ -8,9 +8,10 @@ describe('DASHReact', () => {
   });
 
   it('accepts options object that conforms to MediaPlayerSettingClass', () => {
-    const { getByLabelText, queryAllByTestId } = render(<DASH options={{
-      streaming: { scheduleWhilePaused: true }
+    render(<DASH options={{
+      streaming: { scheduleWhilePaused: true, liveCatchup: {} }
     }} />)
-    console.log(getByLabelText('video'))
+    const element = screen.getByTestId('custom-element')
+    
   })
 })

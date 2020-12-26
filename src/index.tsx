@@ -6,16 +6,12 @@ interface Props {
   options?: MediaPlayerSettingClass
 }
 
-// interface MediaPlayerSettings extends MediaPlayerSettingClass {
-//   streaming?: { [liveCatchup: string]: object }
-// }
-
 interface State {
   player: any
 }
 
 class DASHReact extends React.Component<Props, State> {
-  constructor(props: any) {
+  constructor(props: Props) {
     super(props);
     this.state = {
       player: null
@@ -39,7 +35,7 @@ class DASHReact extends React.Component<Props, State> {
   render() {
     return (
       <div>
-        <video id="videoPlayer" controls></video>
+        <video id="videoPlayer" controls data-testid="custom-element"></video>
       </div>
     )
   }
