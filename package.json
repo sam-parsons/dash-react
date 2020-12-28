@@ -1,6 +1,6 @@
 {
   "name": "dash-react",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "",
   "main": "lib/index.js",
   "files": [
@@ -16,7 +16,7 @@
     "publish": "",
     "test": "jest --config jestconfig.json"
   },
-  "keywords": [],
+  "keywords": ["react", "typescript", "DASH", "dash.js", "react-testing-library", "jest"],
   "author": "",
   "license": "ISC",
   "devDependencies": {
