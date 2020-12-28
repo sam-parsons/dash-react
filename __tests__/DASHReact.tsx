@@ -17,7 +17,7 @@ describe('DASHReact', () => {
         url={"https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd"} 
       />
     );
-    const element = screen.getByTestId('dash-react');
+    screen.getByTestId('dash-react');
     // TODO...
   });
   

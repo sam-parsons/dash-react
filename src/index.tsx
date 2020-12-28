@@ -12,7 +12,11 @@ class DASHReact extends React.Component<props, state> {
   }
 
   componentDidMount() {
-    this.initializeDash(this.props.url, this.props.options as MediaPlayerSettingClass, this.props.autoPlay);
+    this.initializeDash(
+      this.props.url, 
+      this.props.options ? this.props.options as MediaPlayerSettingClass : {}, 
+      this.props.autoPlay
+    );
   }
 
   componentWillUnmount() {
@@ -22,7 +26,7 @@ class DASHReact extends React.Component<props, state> {
 
   initializeDash(url: string, options?: MediaPlayerSettingClass, autoPlay = false) {
     const player = dash.MediaPlayer().create();
-    if (options) player.updateSettings(options as MediaPlayerSettingClass);
+    if (options) player.updateSettings(options);
     player.initialize(document.querySelector("#dash-react")! as HTMLElement, url, autoPlay);
     this.setState({ player });
   }
