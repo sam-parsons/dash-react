@@ -4,14 +4,14 @@ import { render, screen } from '@testing-library/react';
 
 describe('DASHReact', () => {
   it('renders', () => {
-    render(<DASH />);
+    render(<DASH url={"https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd"} />);
   });
 
   it('accepts options object that conforms to MediaPlayerSettingClass', () => {
     render(<DASH options={{
       streaming: { scheduleWhilePaused: true, liveCatchup: {} }
-    }} />)
-    const element = screen.getByTestId('custom-element')
-    
+    }} url={"https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd"} />)
+    const element = screen.getByTestId('dash-react');
+    // TODO...
   })
 })
