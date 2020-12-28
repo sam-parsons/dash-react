@@ -1,17 +1,10 @@
 import React from 'react';
 import dash, { MediaPlayerSettingClass } from 'dashjs';
+import { props, state } from './types';
 
-interface Props {
-  url?: string,
-  options?: MediaPlayerSettingClass
-}
-
-interface State {
-  player: any
-}
-
-class DASHReact extends React.Component<Props, State> {
-  constructor(props: Props) {
+class DASHReact extends React.Component<props, state> {
+  
+  constructor(props: props) {
     super(props);
     this.state = {
       player: null
@@ -19,25 +12,32 @@ class DASHReact extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    // create instance of media player
+    this.initializeDash(this.props.options as MediaPlayerSettingClass, this.props.url);
+  }
+
+  componentWillUnmount() {
+    // this.state.player.destroy(); HOW TO DO THIS WITH JEST/RTL
+    this.setState({ player: null });
+  }
+
+  initializeDash(options: MediaPlayerSettingClass, url: string) {
     const player = dash.MediaPlayer().create();
-
-    // update settings from props
-    player.updateSettings(this.props.options as MediaPlayerSettingClass);
-
-    // keep track of the player object in state
-    this.setState({ player }, () => {
-      // first argument - a never null Element typecast as HTMLElement
-      return player.initialize(document.querySelector("#videoPlayer")! as HTMLElement, this.props.url, true);
-    })
+    player.updateSettings(options as MediaPlayerSettingClass);
+    player.initialize(document.querySelector("#dash-react")! as HTMLElement, url, true);
+    this.setState({ player });
   }
 
   render() {
     return (
-      <div>
-        <video id="videoPlayer" controls data-testid="custom-element"></video>
-      </div>
-    )
+      <video 
+        id="dash-react" // needs to handle custom ids
+        data-testid="dash-react"
+        className={this.props.className}
+        controls={this.props.controls}
+        autoPlay={this.props.autoPlay}
+        preload='auto'
+      ></video>
+    );
   }
 }
 
