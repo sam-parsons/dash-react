@@ -16,7 +16,15 @@ import DASH from 'dash-react';
 
 class VideoPlayer extends React.Component {
   render() {
-    return <DASH props={this.props.props} />
+    return (
+      <DASH 
+        className={"class-name"}
+        controls={true}
+        autoPlay={true}
+        url={"url.mpd"}
+        options={this.props.options}
+      />
+    );
   }
 }
 
