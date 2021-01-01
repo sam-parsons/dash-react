@@ -14,7 +14,7 @@ class DASHReact extends React.Component<props, state> {
   componentDidMount() {
     this.initializeDash(
       this.props.url, 
-      this.props.options ? this.props.options as MediaPlayerSettingClass : {}, 
+      this.props.options as MediaPlayerSettingClass ?? {}, 
       this.props.autoPlay
     );
   }
