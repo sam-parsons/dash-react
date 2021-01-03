@@ -20,14 +20,19 @@ class DASHReact extends React.Component<props, state> {
   }
 
   componentWillUnmount() {
-    // this.state.player.destroy(); HOW TO DO THIS WITH JEST/RTL
+    // this.state.player.destroy(); 
     this.setState({ player: null });
   }
 
   initializeDash(url: string, options?: MediaPlayerSettingClass, autoPlay = false) {
     const player = dash.MediaPlayer().create();
     if (options) player.updateSettings(options);
-    player.initialize(document.querySelector("#dash-react")! as HTMLElement, url, autoPlay);
+    player.initialize(
+      document.querySelector("#dash-react")! as HTMLElement, 
+      // needs regex to select for anything beginning with dash-react 
+      url, 
+      autoPlay
+    );
     this.setState({ player });
   }
 
@@ -35,7 +40,7 @@ class DASHReact extends React.Component<props, state> {
     return (
       <video 
         data-testid="dash-react"
-        id={`dash-react${this.props.id ? '-' + this.props.id : ''}`} // needs to handle custom ids
+        id={`dash-react-${this.props.id ? + this.props.id : ''}`}
         className={this.props.className}
         controls={this.props.controls}
         preload='auto'
