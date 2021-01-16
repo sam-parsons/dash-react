@@ -1,6 +1,6 @@
-# dash-react
+# dash-react <sub>v1.0</sub>
 
-react/dash.js integration component
+react/dash.js integration component - full DASH settings support<sub>v1.1</sub>
 
 ## Install
 
@@ -22,7 +22,7 @@ class VideoPlayer extends React.Component {
         controls={true}
         autoPlay={true}
         url={"url.mpd"}
-        options={this.props.options}
+        options={this.props.options} // see src/types/
       />
     );
   }
